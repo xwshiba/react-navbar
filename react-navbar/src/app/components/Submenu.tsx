@@ -1,0 +1,33 @@
+'use client'
+
+import { SITEMAP, PageItem } from '../data';
+
+interface SubmenuProps {
+    tab: keyof typeof SITEMAP;
+    isSubmenuOpen: boolean;
+    navigateAndClose: (content: string) => void;
+};
+ 
+function Submenu({ tab, isSubmenuOpen, navigateAndClose }: SubmenuProps) {
+    const info: PageItem[] = SITEMAP[tab].info;
+
+    return (
+        <ul className={`${isSubmenuOpen ? 'submenu submenu--show' : 'submenu'}`}>
+            {info.map((items, index) => {
+                const { label, id, icon, content } = items;
+                const contentValue: string = content || ''; // content is optional, so either it's a string or an empty string
+                return (
+                    <li className="submenu__item"
+                        key={index}
+                        onClick={() => navigateAndClose(contentValue)}
+                    >
+                        <span className={`submenu__icon ${icon}`}></span>
+                        <a href={`#${id}`}>{label}</a>
+                    </li>
+                );
+            })}
+        </ul>
+    );
+};
+
+export default Submenu;
