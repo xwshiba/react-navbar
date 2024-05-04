@@ -39,6 +39,7 @@
   --sail-color-text: rgba(60, 66, 87, 1);
   --box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
   --border: 0.2px solid #cbd6e0;
+  --sidebar-box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 * {

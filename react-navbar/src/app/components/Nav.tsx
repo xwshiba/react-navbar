@@ -30,6 +30,16 @@ function Nav() {
         setIsSubmenuOpen(true);
     };
 
+    const toggleSubmenu = (tabName: string) => {
+        if (tab === tabName) {
+            setTab('');
+            setIsSubmenuOpen(false);
+        } else {
+            setTab(tabName);
+            setIsSubmenuOpen(true);
+        };
+    };
+
     const closeSubmenu = () => {
         setIsSubmenuOpen(false);
     };
@@ -54,16 +64,18 @@ function Nav() {
                         <a
                             className={nav.logo}
                             onClick={navigateAndClose}
-                            onMouseEnter={closeSubmenu}
                             href="#home"
                         >
                             ShibeHacker
                         </a>
+                        {isSidebarOpen ?
+                        <button className={`${nav.toggle} ${nav.btn}`}
+                            onClick={closeSidebar}>
+                            <span className={icons['gg-close']}></span>
+                        </button> :
                         <button className={`${nav.toggle} ${nav.btn}`} onClick={openSidebar}>
-                            <div>
-                                <span className={icons['gg-menu']}></span>
-                            </div>
-                        </button>
+                            <span className={icons['gg-menu']}></span>
+                        </button>}
                     </div>
                     <ul className={nav.links}>
                         {Object.values(SITEMAP).map((page: Page, index: number) => (
@@ -71,14 +83,13 @@ function Nav() {
                                 <div className={`${nav['subheader-wrapper']} ${nav.btn}`}>
                                     <a
                                         className={`${nav.subheader}`}
-                                        href={`#${page.id}`}
                                         onMouseOver={() => showSubmenu(page.page)}
                                         onClick={() => showSubmenu(page.page)}
                                     >
                                         {page.page}
                                     </a>
-                                    <span 
-                                        className={tab === page.page ? icons['gg-chevron-up'] : icons['gg-chevron-down']}>
+                                    <span
+                                        className={tab === page.page && isSubmenuOpen ? icons['gg-chevron-up'] : icons['gg-chevron-down']}>
                                     </span>
                                 </div>
                                 {tab === page.page &&
@@ -103,6 +114,9 @@ function Nav() {
                 </div>
             </nav>
             <Sidebar
+                tab={tab}
+                toggleSubmenu={toggleSubmenu}
+                isSubmenuOpen={isSubmenuOpen}
                 isSidebarOpen={isSidebarOpen}
                 closeSidebar={closeSidebar}
                 navigateAndClose={navigateAndClose}

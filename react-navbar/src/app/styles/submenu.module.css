@@ -1,8 +1,31 @@
+.submenu {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem;
+
+    border-radius: var(--border-radius);
+
+    background: var(--clr-grey-1);
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-bottom: 1rem;
+    padding: 1rem 0 1rem 0;
+}
+
+.icon {
+    margin: 0 0.8rem 0 0;
+}
+
 @media (min-width: 900px) {
     .submenu {
-        display: flex;
         flex-direction: column;
-        
+
         position: absolute;
         top: 4rem;
         left: 0;
@@ -57,10 +80,6 @@
     }
 
     .item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
         margin-bottom: 0.2rem;
         padding: 0 1rem 0 1rem;
 
@@ -69,7 +88,7 @@
 
     .item:hover,
     .item:focus,
-    .item:focus-within {        
+    .item:focus-within {
         background-color: var(--clr-highlight-2);
 
         cursor: pointer;

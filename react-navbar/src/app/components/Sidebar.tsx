@@ -5,21 +5,23 @@ import sidebar from '../styles/sidebar.module.css';
 import icons from '../styles/icons.module.css';
 
 interface SidebarProps {
+    tab: string;
+    toggleSubmenu: (tabName: string) => void;
+    isSubmenuOpen: boolean;
     isSidebarOpen: boolean;
     closeSidebar: () => void;
     navigateAndClose: () => void;
 };
 
 
-function Sidebar({ isSidebarOpen, closeSidebar, navigateAndClose }: SidebarProps) {
+function Sidebar({ tab, toggleSubmenu, isSubmenuOpen, isSidebarOpen, closeSidebar, navigateAndClose }: SidebarProps) {
     return (
         <nav className={`${isSidebarOpen ? `${sidebar.sidebar} ${sidebar['sidebar--show']}` : sidebar.sidebar}`}>
             <dialog className={sidebar.wrapper}>
-                <button className={`${nav.toggle} ${sidebar.close} ${nav.btn}`}
-                    onClick={closeSidebar}>
-                    <span className={icons['gg-close']}></span>
-                </button>
                 <SidebarContent
+                    tab = {tab}
+                    toggleSubmenu={toggleSubmenu}
+                    isSubmenuOpen={isSubmenuOpen}
                     navigateAndClose={navigateAndClose}
                 />
             </dialog>
