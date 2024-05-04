@@ -12,8 +12,8 @@ import icons from '../styles/icons.module.css';
 
 function Nav() {
     // states
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+    const [isSubmenuOpen, setIsSubmenuOpen] = useState<boolean>(false);
     const [tab, setTab] = useState<string>('');
 
     // states management
@@ -77,7 +77,9 @@ function Nav() {
                                     >
                                         {page.page}
                                     </a>
-                                    <span className={icons['gg-chevron-down']}></span>
+                                    <span 
+                                        className={tab === page.page ? icons['gg-chevron-up'] : icons['gg-chevron-down']}>
+                                    </span>
                                 </div>
                                 {tab === page.page &&
                                     <Submenu
@@ -86,8 +88,7 @@ function Nav() {
                                         navigateAndClose={navigateAndClose}
                                     />
                                 }
-                            </li>
-                        ))
+                            </li>))
                         }
                         <li className={nav.item}>
                             <a
