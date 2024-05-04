@@ -1,0 +1,242 @@
+/* All Icons are from https: //css.gg, MIT license: https://css.gg/doc/license */
+
+/* Navbar Indicator Icon */
+
+ .gg-chevron-down {
+     box-sizing: border-box;
+     position: relative;
+     display: block;
+     transform: scale(var(--ggs, 1));
+     width: 22px;
+     height: 22px;
+     border: 2px solid transparent;
+     border-radius: 100px;
+ }
+
+ .gg-chevron-down::after {
+     content: "";
+     display: block;
+     box-sizing: border-box;
+     position: absolute;
+     width: 8px;
+     height: 8px;
+     border-bottom: 2px solid;
+     border-right: 2px solid;
+     transform: rotate(45deg);
+     left: 4px;
+     top: 4px
+ }
+
+/* Sidebar Open Icon */
+
+.gg-menu {
+    margin: auto;
+}
+
+.gg-menu {
+    transform: scale(var(--ggs, 1))
+}
+
+.gg-menu,
+.gg-menu::after,
+.gg-menu::before {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    min-width: var(--min-width);
+    width: 20px;
+    height: 2px;
+    border-radius: 3px;
+    background: currentColor
+}
+
+.gg-menu::after,
+.gg-menu::before {
+    content: "";
+    position: absolute;
+    top: -6px
+}
+
+.gg-menu::after {
+    top: 6px
+}
+
+/* Sidebar Close Icon */
+
+.gg-close {
+    margin: auto;
+}
+
+.gg-close {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs, 1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
+    border-radius: 40px
+}
+
+.gg-close::after,
+.gg-close::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    top: 8px;
+    left: 1px
+}
+
+.gg-close::after {
+    transform: rotate(-45deg)
+}
+
+/* Photography Icon */
+
+.gg-instagram {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs, 1));
+    border: 2px solid transparent;
+    box-shadow: 0 0 0 2px;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px
+}
+
+.gg-instagram::after,
+.gg-instagram::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute
+}
+
+.gg-instagram::after {
+    border: 2px solid;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    top: 3px
+}
+
+.gg-instagram::before {
+    border-radius: 3px;
+    width: 2px;
+    height: 2px;
+    background: currentColor;
+    right: 1px;
+    top: 1px
+}
+
+/* Resources Icon */
+
+.gg-notes {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs, 1));
+    width: 20px;
+    height: 22px;
+    border: 2px solid;
+    border-radius: 3px
+}
+
+.gg-notes::after,
+.gg-notes::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 3px;
+    height: 2px;
+    background: currentColor;
+    left: 2px
+}
+
+.gg-notes::before {
+    box-shadow:
+        0 4px 0,
+        0 8px 0;
+    width: 12px;
+    top: 2px
+}
+
+.gg-notes::after {
+    width: 6px;
+    top: 14px
+}
+
+/* Expand */
+
+.gg-arrows-expand-right {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs, 1));
+    width: 14px;
+    height: 14px;
+    margin: 2px;
+    box-shadow:
+        -6px 6px 0 -4px,
+        6px -6px 0 -4px
+}
+
+.gg-arrows-expand-right::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 2px;
+    height: 22px;
+    top: -4px;
+    left: 6px;
+    transform: rotate(45deg);
+    border-top: 9px solid;
+    border-bottom: 9px solid
+}
+
+/* Journeys */
+
+.gg-album {
+    box-sizing: border-box; 
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 18px;
+    transform: scale(var(--ggs, 1));
+    border-left: 7px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 8px solid transparent;
+    box-shadow: 0 0 0 2px,
+        inset 6px 4px 0 -4px,
+        inset -6px 4px 0 -4px;
+    border-radius: 3px
+}
+
+.gg-album::after,
+.gg-album::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 2px;
+    height: 5px;
+    background: currentColor;
+    transform: rotate(46deg);
+    top: 5px;
+    right: 4px
+}
+
+.gg-album::after {
+    transform: rotate(-46deg);
+    right: 2px
+}

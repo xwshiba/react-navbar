@@ -3,6 +3,10 @@
 import { useState } from 'react';
 
 import Submenu from './Submenu';
+import Sidebar from './Sidebar';
+
+import nav from '../styles/nav.module.css';
+import icons from '../styles/icons.module.css';
 
 function Nav() {
     // states
@@ -10,16 +14,13 @@ function Nav() {
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
     const [tab, setTab] = useState<string>('');
 
+    // states management
     const openSidebar = () => {
         setIsSidebarOpen(true);
     };
 
     const closeSidebar = (dialogRef?: any) => {
         setIsSidebarOpen(false);
-
-        if (dialogRef) {
-            dialogRef.current.close();
-        };
     };
 
     const showSubmenu = (tabName: string) => {
@@ -31,90 +32,102 @@ function Nav() {
         setIsSubmenuOpen(false);
     };
 
-    const navigateAndClose = (dialogRef?: any) => {
-        if (!dialogRef) {
-            closeSubmenu();
-            return;
-        } else {
-            closeSidebar(dialogRef);
-            return;
-        }
+    const navigateAndClose = () => {
+        closeSubmenu();
+        return;
     };
 
 
     return (
         <>
-            <nav className="navbar" onMouseLeave={closeSubmenu}>
-                <div className="navbar__wrapper">
-                    <div className="navbar__header">
-                        <a className="navbar__skip btn" href="#main">Skip to Main Content</a>
+            <nav className={nav.navbar} onMouseLeave={closeSubmenu}>
+                <div className={nav.wrapper}>
+                    <div className={nav.header}>
+                        <a className={`${nav.skip} ${nav.btn}`} href="#main">Skip to Main Content</a>
                         <a
-                            className="navbar__logo"
+                            className={nav.logo}
+                            onClick={navigateAndClose}
+                            onMouseEnter={closeSubmenu}
                             href="#home"
                         >
                             ShibeHacker
                         </a>
-                        <button className="navbar__toggle btn" onClick={openSidebar}>
-                            <span className="gg-menu"></span>
+                        <button className={`${nav.toggle} ${nav.btn}`} onClick={openSidebar}>
+                            <span className={icons['gg-menu']}></span>
                         </button>
                     </div>
-                    <ul className="navbar__links">
-                        <li className="navbar__item">
-                            <a
-                                className="navbar__subheader btn"
-                                href="#journeys"
-                                onMouseOver={() => showSubmenu('Journeys')}
+                    <ul className={nav.links}>
+                        <li className={nav.item}>
+                            <div className={`${nav['subheader-wrapper']} ${nav.btn}`}>
+                                <a
+                                    className={`${nav.subheader}`}
+                                    href="#journeys"
+                                    onMouseOver={() => showSubmenu('Journeys')}
 
-                            >
-                                Journeys
-                            </a>
+                                >
+                                    Journeys
+                                </a>
+                                <span className={icons['gg-chevron-down']}></span>
+                            </div>
                             {tab === 'Journeys' &&
                                 <Submenu
                                     tab={tab}
                                     isSubmenuOpen={isSubmenuOpen}
-                                    navigateAndClose={navigateAndClose} />}
+                                    navigateAndClose={navigateAndClose} />
+                            }
                         </li>
-                        <li className="navbar__item">
-                            <a
-                                className="navbar__subheader btn"
-                                href="#photography"
-                                onMouseOver={() => showSubmenu('Photography')}
-                            >
-                                Photography
-                            </a>
+                        <li className={nav.item}>
+                            <div className={`${nav['subheader-wrapper']} ${nav.btn}`}>
+                                <a
+                                    className={`${nav.subheader}`}
+                                    href="#photography"
+                                    onMouseOver={() => showSubmenu('Photography')}
+                                >
+                                    Photography
+                                </a>
+                                <span className={icons['gg-chevron-down']}></span>
+                            </div>
                             {tab === 'Photography' &&
                                 <Submenu
                                     tab={tab}
                                     isSubmenuOpen={isSubmenuOpen}
                                     navigateAndClose={navigateAndClose} />}
                         </li>
-                        <li className="navbar__item">
-                            <a
-                                className="navbar__subheader btn"
-                                href="#resources"
-                                onMouseOver={() => showSubmenu('Resources')}
-                            >
-                                Resources
-                            </a>
+                        <li className={nav.item}>
+                            <div className={`${nav['subheader-wrapper']} ${nav.btn}`}>
+                                <a
+                                    className={`${nav.subheader}`}
+                                    href="#resources"
+                                    onMouseOver={() => showSubmenu('Resources')}
+                                >
+                                    Resources
+                                </a>
+
+                                <span className={icons['gg-chevron-down']}></span>
+                            </div>
                             {tab === 'Resources' &&
                                 <Submenu
                                     tab={tab}
                                     isSubmenuOpen={isSubmenuOpen}
                                     navigateAndClose={navigateAndClose} />}
                         </li>
-                        <li className="navbar__item">
+                        <li className={nav.item}>
                             <a
-                                className="navbar__signing btn"
+                                className={`${nav.subheader} ${nav.btn}`}
+                                onMouseEnter={closeSubmenu}
                                 href="#signin"
                             >
                                 Login
                             </a>
-
-
                         </li>
                     </ul>
                 </div>
             </nav>
+            <Sidebar
+                isSidebarOpen={isSidebarOpen}
+                closeSidebar={closeSidebar}
+                navigateAndClose={navigateAndClose}
+            />
         </>
     );
 };
