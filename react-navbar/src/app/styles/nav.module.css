@@ -1,6 +1,5 @@
 .navbar {
-    background-size: cover;
-    background-repeat: no-repeat;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
 
 .wrapper {
@@ -72,7 +71,7 @@
     min-height: var(--min-height);
 
     border-radius: var(--border-radius);
-    border-color: var(--clr-grey-2);
+    border-color: var(--clr-highlight-1);
 
     font-size: 1rem;
     color: var(--clr-black);
@@ -93,11 +92,23 @@
 }
 
 .toggle {
-    width: 2rem;
-    height: 2rem;
+    display: inline-block;
+
+    min-width: var(--min-width);
+    min-height: var(--min-height);
 
     margin-left: auto;
-    padding: 0.2rem;
+    padding: 1rem;
+
+    color: white;
+    font-weight: 900;
+
+    border: var(--border);
+    border-radius: var(--border-radius);
+
+    background-color: var(--clr-highlight-1);
+
+    cursor: pointer;
 }
 
 .links {
@@ -153,7 +164,7 @@
     .item {
         position: relative;
 
-        align-self:center;
+        align-self: center;
 
         list-style-type: none;
     }
@@ -166,11 +177,13 @@
 
     .subheader {
         margin-right: 0.2rem;
-        
+
         height: 100%;
 
         background: transparent;
+
         border-color: transparent;
+        border-radius: var(--border-radius);
     }
 
     .subheader:hover,
@@ -179,5 +192,23 @@
         background: transparent;
 
         color: var(--clr-highlight-1);
+    }
+
+    .btn.login {
+        margin: auto 0;
+        padding: 0 2rem;
+
+        color: white;
+        border: var(--border);
+
+        background-color: var(--clr-highlight-1);
+    }
+
+    .login:hover,
+    .login:focus,
+    .login:focus-within {
+        font-weight: 900;
+
+        background-color: var(--clr-highlight-2);
     }
 }

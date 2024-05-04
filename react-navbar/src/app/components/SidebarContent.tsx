@@ -25,7 +25,8 @@ function SidebarContent({ tab, toggleSubmenu, isSubmenuOpen, navigateAndClose }:
                     return (
                         <article key={index} className={sidebar.subitems} onClick={() => toggleSubmenu(page)}>
                             <div className={sidebar['subitems-wrapper']}>
-                                <a className={sidebar.title}>
+                                <a className={sidebar.title}
+                                   href={`#${page}`}>                                    
                                     {page}
                                 </a>
                                 <span

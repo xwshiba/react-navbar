@@ -93,7 +93,7 @@
     box-sizing: border-box;
     position: relative;
     display: block;
-    min-width: var(--min-width);
+    min-width: 20px;
     width: 20px;
     height: 2px;
     border-radius: 3px;

@@ -41,6 +41,7 @@ function Nav() {
     };
 
     const closeSubmenu = () => {
+        setTab('');
         setIsSubmenuOpen(false);
     };
 
@@ -69,11 +70,11 @@ function Nav() {
                             ShibeHacker
                         </a>
                         {isSidebarOpen ?
-                        <button className={`${nav.toggle} ${nav.btn}`}
+                        <button className={`${nav.toggle}`}
                             onClick={closeSidebar}>
                             <span className={icons['gg-close']}></span>
                         </button> :
-                        <button className={`${nav.toggle} ${nav.btn}`} onClick={openSidebar}>
+                        <button className={`${nav.toggle}`} onClick={openSidebar}>
                             <span className={icons['gg-menu']}></span>
                         </button>}
                     </div>
@@ -85,6 +86,7 @@ function Nav() {
                                         className={`${nav.subheader}`}
                                         onMouseOver={() => showSubmenu(page.page)}
                                         onClick={() => showSubmenu(page.page)}
+                                        href={`#${page.page}`}
                                     >
                                         {page.page}
                                     </a>
@@ -103,7 +105,7 @@ function Nav() {
                         }
                         <li className={nav.item}>
                             <a
-                                className={`${nav.subheader} ${nav.btn}`}
+                                className={`${nav.subheader} ${nav.btn} ${nav.login}`}
                                 onMouseEnter={closeSubmenu}
                                 href="#login"
                             >

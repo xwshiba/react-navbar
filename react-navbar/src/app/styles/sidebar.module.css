@@ -37,7 +37,7 @@
     /* only for smaller screens */
 
     width: 80vw;
-    height: 100vh;
+    height: 90vh;
 
     padding: 2rem 0.4rem;
 
@@ -119,6 +119,15 @@
     border: var(--border);
 
     background-color: var(--clr-highlight-1);
+}
+
+.login:hover,
+.login:focus,
+.login:focus-within {
+    font-weight: 900;
+    color: white;
+
+    background-color: var(--clr-highlight-2);
 }
 
 @media (min-width: 500px) {
