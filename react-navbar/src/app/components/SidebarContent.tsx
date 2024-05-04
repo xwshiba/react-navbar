@@ -1,37 +1,39 @@
-import { SITEMAP, PageItem } from '../data';
+import { SITEMAP } from '../data';
+
+import nav from '../styles/nav.module.css';
+import sidebar from '../styles/sidebar.module.css';
+import icons from '../styles/icons.module.css';
 
 interface SidebarContentProps {
-    navigateAndClose: (content: string) => void;
-    dialogRef: any;
+    navigateAndClose: () => void;
 };
 
 
-function SidebarContent({ navigateAndClose, dialogRef }: SidebarContentProps) {
-
+function SidebarContent({ navigateAndClose }: SidebarContentProps) {
     return (
-        <div className="sidebar__content">
+        <div className={sidebar.content}>
             {
                 Object.keys(SITEMAP).map((name, index) => {
                     const pageObjects = SITEMAP[name];
                     const { page, id, info } = pageObjects;
 
                     return (
-                        <article key={index} className="sidebar__subitems">
+                        <article key={index} className={sidebar.subitems}>
                             <a
                                 href={`#${id}`}
-                                className="sidebar__title"
-                                onClick={() => navigateAndClose(dialogRef)}
+                                className={sidebar.title}
+                                onClick={navigateAndClose}
                             >
                                 {page}
                             </a>
-                            <div className="sidebar__info">
+                            <div className={sidebar.info}>
                                 {info.map((items, index) => {
-                                    const { label, id, icon} = items;
+                                    const { label, id, icon } = items;
                                     return (
-                                        <li className="sidebar__link"
+                                        <li className={sidebar.link}
                                             key={index}
-                                            onClick={() => navigateAndClose(dialogRef)}>
-                                            <span className={`sidebar__icon ${icon}`}></span>
+                                            onClick={navigateAndClose}>
+                                            <span className={`${sidebar.icon} ${icons[icon]}`}></span>
                                             <a href={`#${id}`}>{label}</a>
                                         </li>
                                     );
@@ -41,14 +43,13 @@ function SidebarContent({ navigateAndClose, dialogRef }: SidebarContentProps) {
                     );
                 })
             }
-            <section className="sidebar__footer">(
+            <section className={sidebar.footer}>
                 <button
-                    className="sidebar__signin btn"
+                    className={`${sidebar.login} ${nav.btn}`}
                     type="button"
-                    onClick={() => navigateAndClose(dialogRef)}>
-                    Sign In
+                    onClick={navigateAndClose}>
+                    Login
                 </button>
-                )
             </section>
         </div>
     );

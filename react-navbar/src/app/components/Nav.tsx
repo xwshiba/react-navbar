@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import { SITEMAP, Page } from '../data';
+
 import Submenu from './Submenu';
 import Sidebar from './Sidebar';
 
@@ -19,7 +21,7 @@ function Nav() {
         setIsSidebarOpen(true);
     };
 
-    const closeSidebar = (dialogRef?: any) => {
+    const closeSidebar = () => {
         setIsSidebarOpen(false);
     };
 
@@ -34,6 +36,11 @@ function Nav() {
 
     const navigateAndClose = () => {
         closeSubmenu();
+
+        if (isSidebarOpen) {
+            closeSidebar();
+        };
+
         return;
     };
 
@@ -53,69 +60,40 @@ function Nav() {
                             ShibeHacker
                         </a>
                         <button className={`${nav.toggle} ${nav.btn}`} onClick={openSidebar}>
-                            <span className={icons['gg-menu']}></span>
+                            <div>
+                                <span className={icons['gg-menu']}></span>
+                            </div>
                         </button>
                     </div>
                     <ul className={nav.links}>
-                        <li className={nav.item}>
-                            <div className={`${nav['subheader-wrapper']} ${nav.btn}`}>
-                                <a
-                                    className={`${nav.subheader}`}
-                                    href="#journeys"
-                                    onMouseOver={() => showSubmenu('Journeys')}
-
-                                >
-                                    Journeys
-                                </a>
-                                <span className={icons['gg-chevron-down']}></span>
-                            </div>
-                            {tab === 'Journeys' &&
-                                <Submenu
-                                    tab={tab}
-                                    isSubmenuOpen={isSubmenuOpen}
-                                    navigateAndClose={navigateAndClose} />
-                            }
-                        </li>
-                        <li className={nav.item}>
-                            <div className={`${nav['subheader-wrapper']} ${nav.btn}`}>
-                                <a
-                                    className={`${nav.subheader}`}
-                                    href="#photography"
-                                    onMouseOver={() => showSubmenu('Photography')}
-                                >
-                                    Photography
-                                </a>
-                                <span className={icons['gg-chevron-down']}></span>
-                            </div>
-                            {tab === 'Photography' &&
-                                <Submenu
-                                    tab={tab}
-                                    isSubmenuOpen={isSubmenuOpen}
-                                    navigateAndClose={navigateAndClose} />}
-                        </li>
-                        <li className={nav.item}>
-                            <div className={`${nav['subheader-wrapper']} ${nav.btn}`}>
-                                <a
-                                    className={`${nav.subheader}`}
-                                    href="#resources"
-                                    onMouseOver={() => showSubmenu('Resources')}
-                                >
-                                    Resources
-                                </a>
-
-                                <span className={icons['gg-chevron-down']}></span>
-                            </div>
-                            {tab === 'Resources' &&
-                                <Submenu
-                                    tab={tab}
-                                    isSubmenuOpen={isSubmenuOpen}
-                                    navigateAndClose={navigateAndClose} />}
-                        </li>
+                        {Object.values(SITEMAP).map((page: Page, index: number) => (
+                            <li className={nav.item} key={index}>
+                                <div className={`${nav['subheader-wrapper']} ${nav.btn}`}>
+                                    <a
+                                        className={`${nav.subheader}`}
+                                        href={`#${page.id}`}
+                                        onMouseOver={() => showSubmenu(page.page)}
+                                        onClick={() => showSubmenu(page.page)}
+                                    >
+                                        {page.page}
+                                    </a>
+                                    <span className={icons['gg-chevron-down']}></span>
+                                </div>
+                                {tab === page.page &&
+                                    <Submenu
+                                        tab={tab}
+                                        isSubmenuOpen={isSubmenuOpen}
+                                        navigateAndClose={navigateAndClose}
+                                    />
+                                }
+                            </li>
+                        ))
+                        }
                         <li className={nav.item}>
                             <a
                                 className={`${nav.subheader} ${nav.btn}`}
                                 onMouseEnter={closeSubmenu}
-                                href="#signin"
+                                href="#login"
                             >
                                 Login
                             </a>

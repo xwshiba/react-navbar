@@ -28,7 +28,7 @@
     min-width: var(--min-width);
     min-height: var(--min-height);
 
-    border-radius: var(--radius);
+    border-radius: var(--border-radius);
     border-color: var(--clr-grey-2);
 
     font-size: larger;
@@ -71,7 +71,7 @@
     min-width: var(--min-width);
     min-height: var(--min-height);
 
-    border-radius: var(--radius);
+    border-radius: var(--border-radius);
     border-color: var(--clr-grey-2);
 
     font-size: 1rem;
@@ -84,8 +84,6 @@
 .btn:focus,
 .btn:focus-within {
     color: var(--clr-highlight-1);
-
-    background: var(--clr-grey-2);
 }
 
 @media(prefers-reduced-motion: no-preference) {
@@ -99,6 +97,7 @@
     height: 2rem;
 
     margin-left: auto;
+    padding: 0.2rem;
 }
 
 .links {
@@ -172,8 +171,6 @@
 
         background: transparent;
         border-color: transparent;
-
-        color: var(--clr-grey-4);
     }
 
     .subheader:hover,

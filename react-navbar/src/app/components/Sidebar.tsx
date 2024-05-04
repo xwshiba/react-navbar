@@ -1,37 +1,26 @@
-import { useRef, useEffect } from 'react';
-
 import SidebarContent from './SidebarContent';
+
+import nav from '../styles/nav.module.css';
+import sidebar from '../styles/sidebar.module.css';
+import icons from '../styles/icons.module.css';
 
 interface SidebarProps {
     isSidebarOpen: boolean;
-    closeSidebar: (dialogRef: HTMLDialogElement) => void;
-    navigateAndClose: (content: string) => void;
+    closeSidebar: () => void;
+    navigateAndClose: () => void;
 };
 
 
 function Sidebar({ isSidebarOpen, closeSidebar, navigateAndClose }: SidebarProps) {
-    const dialogRef = useRef<HTMLDialogElement>(null);
-
-    useEffect(
-        () => {
-            if (isSidebarOpen) {
-                dialogRef.current?.showModal();
-            };
-        },
-        [isSidebarOpen]
-    );
-
     return (
-        <nav className={`${isSidebarOpen ? 'sidebar sidebar--show' : 'sidebar'}`}>
-            <dialog className="sidebar__wrapper" ref={dialogRef}>
-                <button className="navbar__toggle sidebar__close btn"
-                    // check if dialogRef.current exists before calling closeSidebar to ensure type safety and avoid potential runtime errors.
-                    onClick={() => dialogRef.current && closeSidebar(dialogRef.current)}>
-                    <span className="gg-close"></span>
+        <nav className={`${isSidebarOpen ? `${sidebar.sidebar} ${sidebar['sidebar--show']}` : sidebar.sidebar}`}>
+            <dialog className={sidebar.wrapper}>
+                <button className={`${nav.toggle} ${sidebar.close} ${nav.btn}`}
+                    onClick={closeSidebar}>
+                    <span className={icons['gg-close']}></span>
                 </button>
                 <SidebarContent
                     navigateAndClose={navigateAndClose}
-                    dialogRef={dialogRef}
                 />
             </dialog>
         </nav>

@@ -25,7 +25,6 @@ function Submenu({ tab, isSubmenuOpen, navigateAndClose }: SubmenuProps) {
                         onClick={() => navigateAndClose(contentValue)}
                     >
                         <span className={`${submenu.icon} ${icons[icon]}`}></span>
-
                         <a href={`#${id}`}>{label}</a>
                     </li>
                 );
