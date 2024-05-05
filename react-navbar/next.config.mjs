@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    basePath: "/react-navbar", // <=== fix image paths
+    basePath: '', // Set the basePath to your desired value
     output: "export",  // <=== enables static exports
 };
 
