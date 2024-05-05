@@ -47,14 +47,13 @@ jobs:
         run: npx next build
 
       - name: Upload artifact 📡
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: next-build
           path: ./out
 
   deploy:
       environment:
-        name: next-build
+        name: github-pages
         url: ${{ steps.deployment.outputs.page_url }}
 
       runs-on: ubuntu-latest
