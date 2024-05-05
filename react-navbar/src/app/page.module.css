@@ -1,0 +1,15 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: var(--max-width);
+  min-height: calc(100vh - 6rem);
+
+  margin: 4rem auto;
+  padding: 6rem;
+}
+
+.main h1 {
+  margin-bottom: 2rem;
+}

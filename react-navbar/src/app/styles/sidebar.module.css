@@ -1,0 +1,149 @@
+.sidebar {
+    position: absolute;
+
+    width: 100%;
+
+    display: grid;
+
+    justify-items: center;
+
+    visibility: hidden;
+    /* for transition effect cannot use display: none */
+
+    transform: scale(0);
+}
+
+.sidebar.sidebar--show {
+    visibility: visible;
+
+    z-index: 2;
+
+    transform: scale(1);
+}
+
+@media(prefers-reduced-motion: no-preference) {
+    .sidebar {
+        transition: var(--transition);
+    }
+}
+
+.wrapper {
+    display: block;
+
+    position: relative;
+    /* for sidebar icons to position correctly */
+
+    overflow: scroll;
+    /* only for smaller screens */
+
+    width: 80vw;
+    height: 90vh;
+
+    padding: 2rem 0.4rem;
+
+    color: var(--clr-grey-3);
+    border: var(--border);
+    border-radius: var(--border-radius);
+
+    box-shadow: var(--sidebar-box-shadow);
+
+    background: white;
+}
+
+.wrapper::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+}
+
+@media(prefers-reduced-motion: no-preference) {
+    .wrapper[open] {
+        animation: scale-up 0.3s linear;
+    }
+
+    .wrapper[open]::backdrop {
+        animation: scale-up 0.3s linear;
+    }
+}
+
+.close {
+    position: absolute;
+
+    top: 1rem;
+    right: 1rem;
+
+    cursor: pointer;
+
+}
+
+.subitems-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: var(--min-height);
+    
+    margin-bottom: 1.6rem;
+    padding: 0 1rem;
+}
+
+.title {
+    display: inline-block;
+    
+    border: hidden;
+
+    font-family: inherit;
+    font-size: medium;
+    line-height: 1.6;
+
+    background-color: transparent;
+
+    cursor: pointer;
+}
+
+.footer {
+    display: grid;
+
+    min-height: 4rem;
+
+    margin-top: 4rem;
+}
+
+.login {
+    min-width: var(--min-width);
+    min-height: var(--min-height);
+
+    margin: auto 0;
+
+    color: white;
+    border: var(--border);
+
+    background-color: var(--clr-highlight-1);
+}
+
+.login:hover,
+.login:focus,
+.login:focus-within {
+    font-weight: 900;
+    color: white;
+
+    background-color: var(--clr-highlight-2);
+}
+
+@media (min-width: 500px) {
+
+    .wrapper {
+        width: 80vw;
+    }
+
+    .info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 0.4rem;
+        column-gap: 0.4rem;
+    }
+
+    .login {
+        margin: auto;
+    }
+}

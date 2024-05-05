@@ -1,0 +1,126 @@
+.submenu {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem;
+
+    border-radius: var(--border-radius);
+
+    background: var(--clr-grey-1);
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-bottom: 1rem;
+    padding: 1rem 0 1rem 0;
+}
+
+.icon {
+    margin: 0 0.8rem 0 0;
+}
+
+@media (min-width: 900px) {
+    .submenu {
+        flex-direction: column;
+
+        position: absolute;
+        top: 4rem;
+        left: 0;
+
+        min-width: 18rem;
+
+        padding: 1rem;
+
+        opacity: 0;
+
+        border-radius: var(--border-radius);
+
+        box-shadow: var(--box-shadow);
+
+        background: white;
+
+        z-index: 3;
+
+        transform: rotateX(90deg);
+        transform-origin: top;
+    }
+
+    .submenu.submenu--show:before {
+        position: absolute;
+        top: 1rem;
+        left: 10rem;
+
+        content: '';
+        display: block;
+
+        opacity: 1;
+    }
+
+    .submenu.submenu--show {
+        opacity: 1;
+
+        transform-origin: top;
+        transform: rotateX(0deg);
+    }
+
+    .title {
+        margin-bottom: 1rem;
+
+        border: none;
+
+        text-align: left;
+        font-family: inherit;
+        font-weight: inherit;
+
+        background-color: transparent;
+
+    }
+
+    .item {
+        margin-bottom: 0.2rem;
+        padding: 0 1rem 0 1rem;
+
+        border-radius: var(--border-radius-small);
+    }
+
+    .item:hover,
+    .item:focus,
+    .item:focus-within {
+        background-color: var(--clr-highlight-2);
+
+        cursor: pointer;
+    }
+
+    .icon {
+        margin: 0 1.2rem 0 0;
+    }
+}
+
+@media(prefers-reduced-motion: no-preference) {
+    .submenu {
+        animation: foldIn ease-in 0.4s;
+    }
+
+
+    /* control opacity & rotateX at the same time */
+    @keyframes foldIn {
+        0% {
+            opacity: 0;
+            transform: rotateX(90deg);
+        }
+
+        80% {
+            opacity: 0.4;
+            transform: rotateX(20deg);
+
+        }
+
+        100% {
+            opacity: 1;
+            transform: rotateX(0deg);
+        }
+    }
+}
