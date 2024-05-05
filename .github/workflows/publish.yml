@@ -28,10 +28,10 @@ jobs:
       - name: List directory contents
         run: ls -l
 
-      # - name: Setup Pages ⚙️
-      #   uses: actions/configure-pages@v4
-      #   with:
-      #     static_site_generator: next
+      - name: Setup Pages ⚙️
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: next
       
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v4
