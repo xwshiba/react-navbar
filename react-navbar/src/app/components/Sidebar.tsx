@@ -1,8 +1,6 @@
 import SidebarContent from './SidebarContent';
 
-import nav from '../styles/nav.module.css';
 import sidebar from '../styles/sidebar.module.css';
-import icons from '../styles/icons.module.css';
 
 interface SidebarProps {
     tab: string;
@@ -17,6 +15,7 @@ interface SidebarProps {
 function Sidebar({ tab, toggleSubmenu, isSubmenuOpen, isSidebarOpen, closeSidebar, navigateAndClose }: SidebarProps) {
     return (
         <nav className={`${isSidebarOpen ? `${sidebar.sidebar} ${sidebar['sidebar--show']}` : sidebar.sidebar}`}>
+            {/* use dialog for modal accessibility */}
             <dialog className={sidebar.wrapper}>
                 <SidebarContent
                     tab = {tab}

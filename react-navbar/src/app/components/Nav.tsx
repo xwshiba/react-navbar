@@ -16,7 +16,7 @@ function Nav() {
     const [isSubmenuOpen, setIsSubmenuOpen] = useState<boolean>(false);
     const [tab, setTab] = useState<string>('');
 
-    // states management
+    // states management functions
     const openSidebar = () => {
         setIsSidebarOpen(true);
     };
@@ -59,6 +59,7 @@ function Nav() {
     return (
         <>
             <nav className={nav.navbar} onMouseLeave={closeSubmenu}>
+                {/* site logo and small screen toggle buttons */}
                 <div className={nav.wrapper}>
                     <div className={nav.header}>
                         <a className={`${nav.skip} ${nav.btn}`} href="#main">Skip to Main Content</a>
@@ -78,6 +79,8 @@ function Nav() {
                             <span className={icons['gg-menu']}></span>
                         </button>}
                     </div>
+
+                    {/* main navigations */}
                     <ul className={nav.links}>
                         {Object.values(SITEMAP).map((page: Page, index: number) => (
                             <li className={nav.item} key={index}>
@@ -103,6 +106,8 @@ function Nav() {
                                 }
                             </li>))
                         }
+
+                        {/* login button */}
                         <li className={nav.item}>
                             <a
                                 className={`${nav.subheader} ${nav.btn} ${nav.login}`}
@@ -113,8 +118,11 @@ function Nav() {
                             </a>
                         </li>
                     </ul>
+
                 </div>
             </nav>
+
+            {/* sidebar for small screens*/}
             <Sidebar
                 tab={tab}
                 toggleSubmenu={toggleSubmenu}

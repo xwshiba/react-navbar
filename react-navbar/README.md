@@ -1,8 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Responsive React Navigation Menu
+
+## Description
+
+This is a navigation menu that is vertically oriented on mobile or small screens, and horizontally oriented on desktop.
+
+The three menu items - "Journeys", "Photography" and "Resouces" - all contains submenu items. When hovering or tabbing over a menu item, the corresponding submenu will be displayed.
+
+Screen break points: `500px`, `900px`.
+
+## Tech Stacks
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). 
+
+This project is written using React, TypeScript and CSS.
+
+## Accessibility
+
+- Any element that needs to gain focus (such as a button or a navigation item) have a minimum height/width of 54px or equivalent.
+
+-  A skip link to bypass navigation is included.
+
+- All interactions can be done with keyboard, in addition to any mouse support.
+
+- The site have WCAG level AA color contrast.
+
+- If users prefer reduce motion, transition effects will not take place.
+
+- ARIA: no added ARIA labels.
+
+## License
+
+- All icons are from [css.gg](https://css.gg/). MIT License information can be found [here](https://css.gg/doc/licence).
+
+- This project is using MIT License.
+
+---
+
+## For Developers
+
 
 ## Getting Started
 
-First, run the development server:
+First, navigate to the app folder:
+
+```bash
+cd react-navbar
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -20,17 +64,11 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Key Files
+- `src/app/components`: contains react components.
 
-To learn more about Next.js, take a look at the following resources:
+- `src/styles`: contains styles for the compoenents. The files are wrapped using css module, which is recommended by next.js.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `data.ts`: contains a sitemap object.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `global.css`: contains the global css styles.

@@ -11,6 +11,7 @@ interface SubmenuProps {
     navigateAndClose: (content: string) => void;
 };
 
+
 function Submenu({ tab, isSubmenuOpen, navigateAndClose }: SubmenuProps) {
     const info: PageItem[] = SITEMAP[tab].info;
 
@@ -19,6 +20,7 @@ function Submenu({ tab, isSubmenuOpen, navigateAndClose }: SubmenuProps) {
             {info.map((items, index) => {
                 const { label, id, icon, content } = items;
                 const contentValue: string = content || ''; // content is optional, so either it's a string or an empty string
+                
                 return (
                     <li className={submenu.item}
                         key={index}

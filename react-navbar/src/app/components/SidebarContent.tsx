@@ -24,6 +24,8 @@ function SidebarContent({ tab, toggleSubmenu, isSubmenuOpen, navigateAndClose }:
 
                     return (
                         <article key={index} className={sidebar.subitems} onClick={() => toggleSubmenu(page)}>
+
+                            {/* main navigations */}
                             <div className={sidebar['subitems-wrapper']}>
                                 <a className={sidebar.title}
                                    href={`#${page}`}>                                    
@@ -40,10 +42,13 @@ function SidebarContent({ tab, toggleSubmenu, isSubmenuOpen, navigateAndClose }:
                                     navigateAndClose={navigateAndClose}
                                 />
                             }
+
                         </article>
                     );
                 })
             }
+
+            {/* login button */}
             <section className={sidebar.footer}>
                 <button
                     className={`${sidebar.login} ${nav.btn}`}
