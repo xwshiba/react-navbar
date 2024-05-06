@@ -1,4 +1,6 @@
 .sidebar {
+    visibility: hidden;
+    /* for transition effect cannot use display: none */
     position: absolute;
 
     width: 100%;
@@ -7,10 +9,8 @@
 
     justify-items: center;
 
-    visibility: hidden;
-    /* for transition effect cannot use display: none */
-
-    transform: scale(0);
+    transform: rotateX(90deg);
+    transform-origin: top;
 }
 
 .sidebar.sidebar--show {
@@ -18,7 +18,7 @@
 
     z-index: 2;
 
-    transform: scale(1);
+    transform: rotateX(0deg);
 }
 
 @media(prefers-reduced-motion: no-preference) {
@@ -50,21 +50,6 @@
     background: white;
 }
 
-.wrapper::backdrop {
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-}
-
-@media(prefers-reduced-motion: no-preference) {
-    .wrapper[open] {
-        animation: scale-up 0.3s linear;
-    }
-
-    .wrapper[open]::backdrop {
-        animation: scale-up 0.3s linear;
-    }
-}
-
 .close {
     position: absolute;
 
@@ -72,7 +57,6 @@
     right: 1rem;
 
     cursor: pointer;
-
 }
 
 .subitems-wrapper {
@@ -82,14 +66,14 @@
     justify-content: space-between;
 
     min-height: var(--min-height);
-    
+
     margin-bottom: 1.6rem;
     padding: 0 1rem;
 }
 
 .title {
     display: inline-block;
-    
+
     border: hidden;
 
     font-family: inherit;
@@ -131,7 +115,6 @@
 }
 
 @media (min-width: 500px) {
-
     .wrapper {
         width: 80vw;
     }
@@ -145,5 +128,11 @@
 
     .login {
         margin: auto;
+    }
+}
+
+@media (min-width: 900px) {
+    .sidebar.sidebar--show {
+        visibility: hidden;
     }
 }

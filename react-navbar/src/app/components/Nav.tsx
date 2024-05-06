@@ -83,12 +83,13 @@ function Nav() {
                     {/* main navigations */}
                     <ul className={nav.links}>
                         {Object.values(SITEMAP).map((page: Page, index: number) => (
-                            <li className={nav.item} key={index}>
+                            <li className={nav.item} key={index}
+                                onMouseOver={() => showSubmenu(page.page)}
+                                onClick={() => showSubmenu(page.page)}
+                            >
                                 <div className={`${nav['subheader-wrapper']} ${nav.btn}`}>
                                     <a
-                                        className={`${nav.subheader}`}
-                                        onMouseOver={() => showSubmenu(page.page)}
-                                        onClick={() => showSubmenu(page.page)}
+                                        className={`${nav.subheader}`}                                        
                                         href={`#${page.page}`}
                                     >
                                         {page.page}

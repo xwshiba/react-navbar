@@ -60,7 +60,8 @@
       width: 22px;
       height: 22px;
       border: 2px solid transparent;
-      border-radius: 100px
+      border-radius: 100px;
+      margin-top: 2px;
   }
 
   .gg-chevron-right::after {
