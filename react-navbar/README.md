@@ -4,9 +4,15 @@
 
 This is a navigation menu that is vertically oriented on mobile or small screens, and horizontally oriented on desktop.
 
-The three menu items - "Journeys", "Photography" and "Resouces" - all contains submenu items. When hovering or tabbing over a menu item, the corresponding submenu will be displayed.
+The three menu items - "Journeys", "Photography" and "Resouces" 
+    - all contains submenu items. When hovering or tabbing over a menu item, the corresponding submenu will be displayed;
+    - transition animations apply to these elements;
+    - menu item only has href attribute, no routing at all;
+    - When click on a menu item that has link (href in this case), the menu will be closed;
 
 Screen break points: `500px`, `900px`.
+
+The project has been deployed to the website: https://xwshiba.github.io/react-navbar/
 
 ## Tech Stacks
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). 
@@ -40,7 +46,7 @@ This project is written using React, TypeScript and CSS.
 
 ## Getting Started
 
-First, navigate to the app folder:
+First, navigate to the inside `react-navbar` folder:
 
 ```bash
 cd react-navbar
@@ -50,12 +56,6 @@ Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

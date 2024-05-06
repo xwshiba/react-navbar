@@ -23,7 +23,7 @@ function SidebarContent({ tab, toggleSubmenu, isSubmenuOpen, navigateAndClose }:
                     const { page, id } = pageObjects;
 
                     return (
-                        <article key={index} className={sidebar.subitems} onClick={() => toggleSubmenu(page)}>
+                        <div key={index} className={sidebar.subitems} onClick={() => toggleSubmenu(page)}>
 
                             {/* main navigations */}
                             <div className={sidebar['subitems-wrapper']}>
@@ -43,7 +43,7 @@ function SidebarContent({ tab, toggleSubmenu, isSubmenuOpen, navigateAndClose }:
                                 />
                             }
 
-                        </article>
+                        </div>
                     );
                 })
             }
