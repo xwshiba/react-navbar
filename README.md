@@ -10,7 +10,7 @@ The three menu items - "Journeys", "Photography" and "Resouces"
     - menu item only has href attribute, no routing at all;
     - When click on a menu item that has link (href in this case), the menu will be closed;
 
-Screen break points: `500px`, `900px`.
+Screen break points: `500px`, `1280px`.
 
 The project has been deployed to the website: https://xwshiba.github.io/react-navbar/
 
