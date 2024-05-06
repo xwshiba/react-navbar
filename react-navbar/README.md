@@ -5,10 +5,14 @@
 This is a navigation menu that is vertically oriented on mobile or small screens, and horizontally oriented on desktop.
 
 The three menu items - "Journeys", "Photography" and "Resouces" 
-    - all contains submenu items. When hovering or tabbing over a menu item, the corresponding submenu will be displayed;
-    - transition animations apply to these elements;
-    - menu item only has href attribute, no routing at all;
-    - When click on a menu item that has link (href in this case), the menu will be closed;
+
+  - all contains submenu items. When hovering or tabbing over a menu item, the corresponding submenu will be displayed;
+
+  - transition animations apply to these elements;
+
+  - menu item only has href attribute, no routing at all;
+  
+  - When click on a menu item that has link (href in this case), the menu will be closed;
 
 Screen break points: `500px`, `1280px`.
 
