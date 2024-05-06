@@ -46,7 +46,7 @@
     margin: 0 0.8rem 0 0;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1280px) {
     .submenu {
         position: absolute;
         top: 4rem;

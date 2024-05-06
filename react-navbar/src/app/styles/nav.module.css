@@ -137,7 +137,7 @@
     z-index: 4;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1280px) {
 
     .wrapper {
         max-width: var(--max-width);
