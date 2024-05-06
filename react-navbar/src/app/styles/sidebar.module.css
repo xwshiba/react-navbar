@@ -131,7 +131,7 @@
     }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1280px) {
     .sidebar.sidebar--show {
         visibility: hidden;
     }
